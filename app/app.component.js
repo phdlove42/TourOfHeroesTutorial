@@ -9,13 +9,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var hero_detail_component_1 = require('./hero-detail.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of Heroes';
-        this.hero = {
-            id: 1,
-            name: "Iron Man"
-        };
         this.heroes = HEROES;
     }
     AppComponent.prototype.onSelect = function (hero) {
@@ -24,20 +21,15 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: './app/template/template.html',
+            templateUrl: './app/template/main-template.html',
             styleUrls: ["./styles.css"],
+            directives: [hero_detail_component_1.HeroDetailComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-var Hero = (function () {
-    function Hero() {
-    }
-    return Hero;
-}());
-exports.Hero = Hero;
 var HEROES = [
     { "id": 11, "name": "Mr. Nice" },
     { "id": 12, "name": "Narco" },
