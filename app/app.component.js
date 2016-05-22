@@ -12,16 +12,42 @@ var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of Heroes';
-        this.hero = 'Iron Man';
+        this.hero = {
+            id: 1,
+            name: "Iron Man"
+        };
+        this.heroes = HEROES;
     }
+    AppComponent.prototype.onSelect = function (hero) {
+        this.selectedHero = hero;
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1> My first NG2 (not OG2) app. </h1>'
+            templateUrl: './app/template/template.html',
+            styleUrls: ["./styles.css"],
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
+var Hero = (function () {
+    function Hero() {
+    }
+    return Hero;
+}());
+exports.Hero = Hero;
+var HEROES = [
+    { "id": 11, "name": "Mr. Nice" },
+    { "id": 12, "name": "Narco" },
+    { "id": 13, "name": "Bombasto" },
+    { "id": 14, "name": "Celeritas" },
+    { "id": 15, "name": "Magneta" },
+    { "id": 16, "name": "RubberMan" },
+    { "id": 17, "name": "Dynama" },
+    { "id": 18, "name": "Dr IQ" },
+    { "id": 19, "name": "Magma" },
+    { "id": 20, "name": "Tornado" }
+];
 //# sourceMappingURL=app.component.js.map
