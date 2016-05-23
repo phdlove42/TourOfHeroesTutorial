@@ -9,37 +9,43 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_deprecated_1 = require('@angular/router-deprecated');
+var hero_service_1 = require('./hero.service');
+var heroes_component_1 = require('./heroes.component');
 var hero_detail_component_1 = require('./hero-detail.component');
+var dashboard_component_1 = require('./dashboard.component');
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Tour of Heroes';
-        this.heroes = HEROES;
     }
-    AppComponent.prototype.onSelect = function (hero) {
-        this.selectedHero = hero;
-    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            templateUrl: './app/template/main-template.html',
-            styleUrls: ["./styles.css"],
-            directives: [hero_detail_component_1.HeroDetailComponent]
-        }), 
+            template: "<h1>{{title}}</h1>\n  <nav>\n    <a [routerLink]=\"['Dashboard']\">Dashboard</a>\n    <a [routerLink]=\"['Heroes']\">Heroes</a>\n  </nav>\n  <router-outlet></router-outlet>",
+            directives: [router_deprecated_1.ROUTER_DIRECTIVES],
+            providers: [router_deprecated_1.ROUTER_PROVIDERS, hero_service_1.HeroService]
+        }),
+        router_deprecated_1.RouteConfig([
+            {
+                path: '/detail/:id',
+                name: 'HeroDetail',
+                component: hero_detail_component_1.HeroDetailComponent
+            },
+            {
+                path: '/heroes',
+                name: 'Heroes',
+                component: heroes_component_1.HeroesComponent
+            },
+            {
+                path: '/dashboard',
+                name: 'Dashboard',
+                component: dashboard_component_1.DashboardComponent,
+                useAsDefault: true
+            },
+        ]), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-var HEROES = [
-    { "id": 11, "name": "Mr. Nice" },
-    { "id": 12, "name": "Narco" },
-    { "id": 13, "name": "Bombasto" },
-    { "id": 14, "name": "Celeritas" },
-    { "id": 15, "name": "Magneta" },
-    { "id": 16, "name": "RubberMan" },
-    { "id": 17, "name": "Dynama" },
-    { "id": 18, "name": "Dr IQ" },
-    { "id": 19, "name": "Magma" },
-    { "id": 20, "name": "Tornado" }
-];
 //# sourceMappingURL=app.component.js.map
