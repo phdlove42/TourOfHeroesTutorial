@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core'
-import { Hero } from './hero'
+import { Hero } from '../hero/hero'
 import { RouteParams } from '@angular/router-deprecated'
-import { HeroService } from './hero.service'
+import { HeroService } from '../hero-service/hero.service'
 
 @Component({
     selector: 'my-hero-detail',

@@ -9,7 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var hero_service_1 = require('./hero.service');
+var hero_service_1 = require('../hero-service/hero.service');
 var router_deprecated_1 = require('@angular/router-deprecated');
 var DashboardComponent = (function () {
     function DashboardComponent(heroService, router) {
